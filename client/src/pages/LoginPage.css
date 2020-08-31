@@ -1,0 +1,32 @@
+.clickable .MuiTouchRipple-root{
+    background-color: #ed1c40;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.clickable .MuiButton-label{
+    color: black;
+    z-index: 2;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    text-transform: none;
+}
+
+:disabled .MuiButton-label{
+    color: white;
+    background-color: whitesmoke;
+    z-index: 2;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    text-transform: none;
+}
+
+:disabled .MuiTouchRipple-root{
+    background-color: whitesmoke;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    text-transform: none;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.hidden {
+    display: none;
+}

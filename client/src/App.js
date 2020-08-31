@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Pages from './pages/Pages'
 import { setUser } from "./store/auth"
@@ -24,6 +24,8 @@ function App() {
     loadUser();
   }, [dispatch]);
 
+
+  //change to only redirect if not logged in for certain pages
   if (loading) return null;
 
   return (
