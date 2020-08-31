@@ -21,6 +21,13 @@ module.exports = (sequelize, DataTypes) => {
           len: [60, 60],
         },
       },
+      location: {
+        allowNull: false,
+        type: DataTypes.STRING,
+        validates: {
+          len: [3, 255],
+        },
+      }
     },
     {
       defaultScope: {
