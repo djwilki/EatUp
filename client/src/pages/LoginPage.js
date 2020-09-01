@@ -4,7 +4,6 @@ import { login } from '../store/auth';
 import { Redirect } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import './LoginPage.css';
-// import logo from '../../public/images/meetup_logo.png';
 import logo from '../images/meetup_logo.png';
 
 function LoginPage() {
@@ -25,7 +24,7 @@ function LoginPage() {
     return (
         <>
             <div className="banner">
-                <img src={logo} />
+                <img src={logo} alt="logo"/>
                 <div className="links">
                     <a href="/login">Log in</a>
                     <a href="/register">Sign up</a>
@@ -59,6 +58,7 @@ function LoginPage() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
 
+                        {/* <Button type="submit" className={`${filled ? 'clickable' : ''}`} disabled={!filled}>Log in</Button> */}
                         <Button type="submit" className={`${filled ? 'clickable' : ''}`} disabled={!filled}>Log in</Button>
                     </form>
                 </div>
@@ -86,11 +86,10 @@ function LoginPage() {
                     <a href="/login">Log in</a>
                 </div>
                 <div className="footer-links">
-                    <a>Help</a>
-                    <a>About Us</a>
-                    <a>Jobs</a>
+                    <a href="/login">Help</a>
+                    <a href="/login">About Us</a>
+                    <a href="/login">Jobs</a>
                 </div>
-                <div>Privacy</div>
             </div>
         </>
     )

@@ -1,36 +1,25 @@
-.clickable .MuiTouchRipple-root{
+
+button.clickable{
     background-color: #ed1c40;
+    color: white;
+    text-transform: none;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+
+}
+
+button.Mui-disabled{
     padding-left: 16px;
     padding-right: 16px;
-
-}
-
-.clickable .MuiButton-label{
     color: white;
-    z-index: 2;
-    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
     text-transform: none;
-}
-
-:disabled .MuiButton-label{
-    color: white;
-    background-color: whitesmoke;
-    z-index: 2;
-    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
-    text-transform: none;
-    font-size: 13px;
-    font-weight: 550;
-}
-
-:disabled .MuiTouchRipple-root{
+    font-size: 16px;
+    font-weight: 700;
     background-color: whitesmoke;
     font-family: "Graphik Meetup",helvetica,arial,sans-serif;
-    text-transform: none;
-    font-size: 13px;
-    font-weight: 550;
-    padding-left: 16px;
-    padding-right: 16px;
 }
+
 
 .hidden {
     display: none;
@@ -49,7 +38,8 @@
 .login-form-container {
     box-sizing: border-box;
     padding: 16px 16px 16px;
-    border: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
     width: 458px;
 }
 
@@ -96,7 +86,7 @@ Button {
 }
 
 .title{
-    font-size: 34px;
+    font-size: 33px;
     font-weight: 600;
 
 }
@@ -176,6 +166,7 @@ body{
     color: rgba(0,0,0,.54);
     font-family: "Graphik Meetup",helvetica,arial,sans-serif;
     font-weight: 400;
+    font-size: 14px;
     margin-right: 16px;
 }
 
