@@ -2,10 +2,11 @@
     background-color: #ed1c40;
     padding-left: 16px;
     padding-right: 16px;
+
 }
 
 .clickable .MuiButton-label{
-    color: black;
+    color: white;
     z-index: 2;
     font-family: "Graphik Meetup",helvetica,arial,sans-serif;
     text-transform: none;
@@ -17,12 +18,16 @@
     z-index: 2;
     font-family: "Graphik Meetup",helvetica,arial,sans-serif;
     text-transform: none;
+    font-size: 13px;
+    font-weight: 550;
 }
 
 :disabled .MuiTouchRipple-root{
     background-color: whitesmoke;
     font-family: "Graphik Meetup",helvetica,arial,sans-serif;
     text-transform: none;
+    font-size: 13px;
+    font-weight: 550;
     padding-left: 16px;
     padding-right: 16px;
 }
@@ -43,7 +48,7 @@
 
 .login-form-container {
     box-sizing: border-box;
-    padding: 16px 16px 0px;
+    padding: 16px 16px 16px;
     border: 1px solid lightgrey;
     width: 458px;
 }
@@ -63,12 +68,15 @@
     border-bottom-right-radius: 3px;
     border-bottom: 1px solid transparent;
     border-bottom: 1px solid rgba(0,0,0,.26);
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 Button {
     box-sizing: border-box;
     width: 82px;
-
+    margin-top: 12px;
 }
 
 .demo-user {
@@ -81,12 +89,144 @@ Button {
     padding-bottom: 13px;
     padding-left: 10.5px;
     padding-right: 105.px;
-    width: 398px;
+    width: 421px;
     margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
+.title{
+    font-size: 34px;
+    font-weight: 600;
 
+}
+
+.sign-up{
+    font-size: 13px;
+    font-weight: 550;
+}
 
 div {
     font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+}
+
+input {
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    display: block;
+    line-height: 1.45;
+    padding: 4px;
+    font-size: 16px;
+    width: auto;
+    margin-bottom: 16px;
+    color: rgba(0,0,0,.87);
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 3px;
+    background-color: #fafafa;
+}
+
+body {
+    background-color: white;
+}
+
+div {
+    background-color: white;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-size: 13px;
+    font-weight: 550;
+}
+
+.OR {
+    position: absolute;
+    top: -8px;
+    box-sizing: border-box;
+    width: 32px;
+    height: 16px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    line-height: 14px;
+}
+
+
+.page{
+    margin-left: auto;
+    margin-right: auto;
+    width: 460px;
+    margin-top: 80px;
+    margin-bottom: 32px;
+}
+
+
+body{
+    background-color: white;
+}
+
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+    border-bottom: 1px lightgrey solid;
+}
+
+.banner a{
+    text-decoration: none;
+    color: rgba(0,0,0,.54);
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-weight: 400;
+    margin-right: 16px;
+}
+
+.banner a:hover{
+    color: red;
+}
+
+.banner img{
+    height: 44px;
+    width: 123px;
+}
+
+.page-footer{
+    background-color:  #0f1721;
+    height: 334px;
+    padding: 24px 16px 8px;
+}
+
+.page-footer div{
+    background-color: transparent;
+    display: flex;
+}
+
+.page-footer div a{
+    color: white;
+    background-color: transparent;
+    justify-self: end;
+    margin-bottom: 16px;
+    text-decoration: none;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.footer-pages{
+    display: flex;
+    flex-direction: row-reverse;
+    border-bottom: 1px solid rgb(83, 81, 81);
+    max-width: 928px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-links{
+    display: flex;
+    flex-direction: row;
+    max-width: 928px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-links a{
+    margin: 16px 8px 32px 0px;
 }

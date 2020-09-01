@@ -43,7 +43,7 @@ export const login = (email, password) => {
     }
 };
 
-export const logout = () => {
+export const logout = (email, password, name) => {
     return async dispatch => {
         const res = await fetch('/api/session', {
             method: "delete",

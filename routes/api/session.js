@@ -1,11 +1,10 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { check } = require("express-validator");
-
 const { User } = require("../../db/models");
 const { handleValidationErrors } = require("../util/validation");
 const { requireUser, generateToken, AuthenticationError } = require("../util/auth");
-const { jwtConfig: { expiresIn }} = require('../../config');
+const { jwtConfig: { expiresIn } } = require('../../config');
 
 const router = express.Router();
 
@@ -47,5 +46,15 @@ router.put(
     return next(new Error('Invalid credentials'));
   })
 );
+
+router.delete(
+  "/",
+  asyncHandler(async function (req, res, next) {
+    console.log('we made it into delete');
+    res.clearCookie('token')
+    res.end(200);
+  })
+);
+
 
 module.exports = router;
