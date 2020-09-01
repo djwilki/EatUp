@@ -184,8 +184,8 @@ body{
 }
 
 .banner img{
-    height: 44px;
-    width: 123px;
+    width: 127px;
+    padding-left: 16px;
 }
 
 .page-footer{

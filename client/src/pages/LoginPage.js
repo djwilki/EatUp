@@ -4,6 +4,8 @@ import { login } from '../store/auth';
 import { Redirect } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import './LoginPage.css';
+// import logo from '../../public/images/meetup_logo.png';
+import logo from '../images/meetup_logo.png';
 
 function LoginPage() {
     const [email, setEmail] = useState('');
@@ -23,7 +25,7 @@ function LoginPage() {
     return (
         <>
             <div className="banner">
-                <img src="meetup_logo.png" />
+                <img src={logo} />
                 <div className="links">
                     <a href="/login">Log in</a>
                     <a href="/register">Sign up</a>
