@@ -10,8 +10,6 @@ button.clickable{
 }
 
 button.Mui-disabled{
-    padding-left: 16px;
-    padding-right: 16px;
     color: white;
     text-transform: none;
     font-size: 16px;
@@ -91,10 +89,19 @@ Button {
 
 }
 
-.sign-up{
+
+
+.sign-up a{
     font-size: 13px;
     font-weight: 550;
+    text-decoration: none;
 }
+
+.signup a:hover{
+    text-decoration: underline;
+}
+
+
 
 div {
     font-family: "Graphik Meetup",helvetica,arial,sans-serif;

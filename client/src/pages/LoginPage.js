@@ -14,17 +14,22 @@ function LoginPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(email, password);
         dispatch(login(email, password));
         window.location.href = "/"
     }
-
+    const handleDemo = (e) => {
+        console.log('DEMO')
+        e.preventDefault();
+        dispatch(login('demo@example.com', 'password'));
+        window.location.href = "/"
+    }
     if (currentUserId) return <Redirect to="/" />
     const filled = email.length > 4 && email.length < 70 && password.length > 4 && password.length < 70;
-
     return (
         <>
             <div className="banner">
-                <img src={logo} alt="logo"/>
+                <img src={logo} alt="logo" />
                 <div className="links">
                     <a href="/login">Log in</a>
                     <a href="/register">Sign up</a>
@@ -57,26 +62,12 @@ function LoginPage() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-
-                        {/* <Button type="submit" className={`${filled ? 'clickable' : ''}`} disabled={!filled}>Log in</Button> */}
                         <Button type="submit" className={`${filled ? 'clickable' : ''}`} disabled={!filled}>Log in</Button>
                     </form>
                 </div>
                 <div className="login-footer">
                     <div className="OR">OR</div>
-                    <form className="login-form" onSubmit={handleSubmit}>
-                        <input
-                            type="hidden"
-                            name="email"
-                            value='demo@example.com'
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <input
-                            type="hidden"
-                            name="password"
-                            value="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
+                    <form className="login-form" onSubmit={handleDemo}>
                         <button type="submit" className="demo-user">Log in with Demo User</button>
                     </form>
                 </div>
