@@ -30,3 +30,63 @@
 .hidden {
     display: none;
 }
+
+.login-header {
+    box-sizing: border-box;
+    padding: 16px 16px 0px;
+    border: 1px solid lightgrey;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    width: 458px;
+    height: 103px;
+}
+
+.login-form-container {
+    box-sizing: border-box;
+    padding: 16px 16px 0px;
+    border: 1px solid lightgrey;
+    width: 458px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-footer {
+    background-color: #D8DFEA;
+    border-top: 1px solid #627AAD;
+    box-sizing: border-box;
+    padding: 16px;
+    width: 458px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid rgba(0,0,0,.26);
+}
+
+Button {
+    box-sizing: border-box;
+    width: 82px;
+
+}
+
+.demo-user {
+    color: rgba(0,0,0,.54);
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    position: relative;
+    padding-top: 16px;
+    padding-bottom: 13px;
+    padding-left: 10.5px;
+    padding-right: 105.px;
+    width: 398px;
+    margin-bottom: 16px;
+}
+
+
+
+div {
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+}

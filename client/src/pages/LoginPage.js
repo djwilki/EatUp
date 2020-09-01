@@ -14,6 +14,7 @@ function LoginPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login(email, password));
+        window.location.href = "/"
     }
 
     if (currentUserId) return <Redirect to="/" />
@@ -22,32 +23,48 @@ function LoginPage() {
     return (
         <>
             <div className="login-header">
-                <h1>Log in</h1>
-                <h3>Not registered with us yet? <a href="/signup">Sign up</a></h3>
+                <div>Log in</div>
+                <div>Not registered with us yet? <a href="/signup">Sign up</a></div>
             </div>
-            <form className="login-form" onSubmit={handleSubmit}>
-                <label>
-                    Email address:
-            <input
+            <div className="login-form-container">
+                <form className="login-form" onSubmit={handleSubmit}>
+                    <label>
+                        Email address:</label>
+                    <input
                         type="text"
                         name="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                </label>
-                <label>
-                    Password:
-            <input
+
+                    <label>
+                        Password:</label>
+                    <input
                         type="text"
                         name="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                </label>
-                <Button type="submit" className={`${filled ? 'clickable' : ''}`} disabled={!filled}>Log in</Button>
-            </form>
-            <div className="login-footer">
 
+                    <Button type="submit" className={`${filled ? 'clickable' : ''}`} disabled={!filled}>Log in</Button>
+                </form>
+            </div>
+            <div className="login-footer">
+                <form className="login-form" onSubmit={handleSubmit}>
+                <input
+                        type="hidden"
+                        name="email"
+                        value='demo@example.com'
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                        type="hidden"
+                        name="password"
+                        value="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button type="submit" className="demo-user">Log in with Demo User</button>
+                </form>
             </div>
         </>
     )
