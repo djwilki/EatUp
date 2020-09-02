@@ -9,8 +9,9 @@ const LogoutButton = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(logout());
-        window.location.replace("http://localhost:3000/login");
     }
+
+
 
     return (
         <>

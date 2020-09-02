@@ -53,6 +53,7 @@ function restoreUser(req, _res, next) {
   });
 }
 
+
 const requireUser = [restoreUser];
 
 module.exports = { generateToken, requireUser, AuthenticationError };

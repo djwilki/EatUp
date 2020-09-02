@@ -9,7 +9,6 @@ const {
   jwtConfig: { expiresIn },
 } = require("../../config");
 
-
 const validateSignup = [
   check("username", "must be between 5 and 70 characters")
     .isLength({ min: 5, max: 70 }),
@@ -19,8 +18,8 @@ const validateSignup = [
   check("password", "must be 6 or more characters")
     .exists()
     .isLength({ min: 6, max: 70 }),
-  check('confirmPassword', 'must have the same value as the password field')
-    .custom((value, { req }) => value === req.body.password)
+  // check('confirmPassword', 'must have the same value as the password field')
+  //   .custom((value, { req }) => value === req.body.password)
 ];
 
 const router = express.Router();
@@ -31,7 +30,7 @@ router.get('/', asyncHandler(async function (_req, res, _next) {
 }));
 
 router.post(
-  "/",
+  "/", ()=>
   validateSignup,
   handleValidationErrors,
   asyncHandler(async function (req, res) {
@@ -44,7 +43,7 @@ router.post(
       secure: process.env.NODE_ENV === "production",
     });
     return res.json({
-      user,
+      newUser,
     });
   })
 );
