@@ -49,11 +49,10 @@ router.put(
 
 router.delete(
   "/",
-  console.log(res),
   asyncHandler(async function (req, res, next) {
     console.log('we made it into delete');
     res.clearCookie('token');
-    res.end(200);
+    res.send(200);
   })
 );
 

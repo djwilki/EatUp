@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 function HomePage() {
 
     const currentUserId = useSelector(state => state.auth.id);
-    console.log(currentUserId);
     if (!currentUserId) return <Redirect to="/login" />
     return (
         <div>
