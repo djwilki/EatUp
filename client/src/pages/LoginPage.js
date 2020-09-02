@@ -16,7 +16,7 @@ function LoginPage() {
         e.preventDefault();
         console.log(email, password);
         dispatch(login(email, password));
-        window.location.href = "/"
+        window.location.href = "/";
     }
     const handleDemo = (e) => {
         console.log('DEMO')
