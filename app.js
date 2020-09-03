@@ -52,7 +52,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-app.use(function(_req, _res, next) {
+app.use(function (_req, _res, next) {
   next(createError(404));
 });
 
@@ -62,11 +62,16 @@ app.use((err, _req, _res, next) => {
     err.errors = err.errors.map((e) => e.message);
     err.title = "Sequelize Error";
   }
+  if (process.env.NODE_ENV !== "production") {
+    console.log(err.message)
+    console.log(err.stack)
+  }
+
   err.status = 422;
   next(err);
 });
 
-app.use(function(err, _req, res, _next) {
+app.use(function (err, _req, res, _next) {
   res.status(err.status || 500);
   if (err instanceof AuthenticationError) {
     res.clearCookie('token');

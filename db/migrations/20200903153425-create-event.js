@@ -16,6 +16,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
+      attendance: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       seats: {
         allowNull: false,
         type: Sequelize.INTEGER

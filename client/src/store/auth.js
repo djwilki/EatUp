@@ -2,7 +2,6 @@ import Cookies from 'js-cookie';
 
 const SET_USER = "auth/SET_USER";
 const REMOVE_USER = "auth/REMOVE_USER";
-// const MAKE_USER = "auth/MAKE_USER";
 
 export const setUser = (user) => {
     return {
@@ -16,13 +15,6 @@ export const removeUser = () => {
         type: REMOVE_USER,
     }
 }
-
-// export const makeUser = (newUser) => {
-//     return {
-//         type: MAKE_USER,
-//         newUser
-//     }
-// }
 
 
 export const login = (email, password) => {
@@ -73,7 +65,6 @@ export const signUp = (email, password, name) => {
         });
         res.data = await res.json();
         if (res.ok) {
-            // dispatch(makeUser(res.data.newUser));
             dispatch(setUser(res.data.user));
         }
     }
@@ -87,8 +78,6 @@ export default function authReducer(state = {}, action) {
             return action.user;
         case REMOVE_USER:
             return {};
-        // case MAKE_USER:
-        //     return action.newUser;
         default:
             return state;
     }

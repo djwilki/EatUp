@@ -53,6 +53,7 @@ function SignUpPage() {
                             name="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            required
                         />
                         <label>
                             Email address</label>
@@ -61,6 +62,7 @@ function SignUpPage() {
                             name="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            required
                         />
 
                         <label>
@@ -70,6 +72,7 @@ function SignUpPage() {
                             name="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
                         <button id="continue" type="submit">Continue</button>
                     </form>

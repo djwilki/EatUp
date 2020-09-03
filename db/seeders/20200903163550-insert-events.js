@@ -21,9 +21,9 @@ module.exports = {
    const users = await User.findAll();
    const groups = await Group.findAll();
    await queryInterface.bulkInsert('Events', [
-    r({name: 'Future Breakfast', description:'All things breakfast!', date:'3030-01-01 09:00:00', seats: 15, hostId: users[0].id, groupId: groups[0].id}),
-    r({name: 'Future Lunch', description:'All things breakfast!', date:'3030-01-01 12:00:00', seats: 15, hostId: users[1].id, groupId: groups[1].id}),
-    r({name: 'Future Dinner', description:'All things breakfast!', date:'3030-01-01 18:00:00', seats: 15, hostId: users[2].id, groupId: groups[2].id}),
+    r({name: 'Future Breakfast', description:'All things breakfast!', date:'3030-01-01 09:00:00', attendance: 0, seats: 15, hostId: users[0].id, groupId: groups[0].id}),
+    r({name: 'Future Lunch', description:'All things breakfast!', date:'3030-01-01 12:00:00', attendance: 0, seats: 15, hostId: users[1].id, groupId: groups[1].id}),
+    r({name: 'Future Dinner', description:'All things breakfast!', date:'3030-01-01 18:00:00', attendance: 0, seats: 15, hostId: users[2].id, groupId: groups[2].id}),
   ]);
   },
 
