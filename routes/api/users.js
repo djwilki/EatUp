@@ -30,10 +30,11 @@ router.get('/', asyncHandler(async function (_req, res, _next) {
 }));
 
 router.post(
-  "/", ()=>
+  "/",
   validateSignup,
   handleValidationErrors,
   asyncHandler(async function (req, res) {
+    console.log("inside post!")
     const user = await User.signup(req.body);
 
     const token = await generateToken(user);

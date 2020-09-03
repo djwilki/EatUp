@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/auth';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import './LoginPage.css';
 import logo from '../images/meetup_logo.png';
@@ -16,20 +16,19 @@ function LoginPage() {
         e.preventDefault();
         console.log(email, password);
         dispatch(login(email, password));
-        // window.location.href = "/";
     }
     const handleDemo = (e) => {
         console.log('DEMO')
         e.preventDefault();
         dispatch(login('demo@example.com', 'password'));
-        // window.location.href = "/"
     }
     if (currentUserId) return <Redirect to="/" />
     const filled = email.length > 4 && email.length < 70 && password.length > 4 && password.length < 70;
     return (
         <>
             <div className="banner">
-                <img src={logo} alt="logo" />
+                <Link to="/"><img src={logo} alt="logo" /></Link>
+
                 <div className="links">
                     <a href="/login">Log in</a>
                     <a href="/register">Sign up</a>

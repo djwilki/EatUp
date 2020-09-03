@@ -27,14 +27,13 @@ function SignUpPage() {
         console.log('DEMO')
         e.preventDefault();
         dispatch(login('demo@example.com', 'password'));
-        window.location.href = "/"
     }
 
     if (currentUserId) return <Redirect to="/" />
     return (
         <>
             <div className="banner">
-                <img src={icon} alt="icon" id="icon" />
+                <Link to="/"><img src={icon} alt="icon" id="icon" /></Link>
             </div>
             <div id="sign-up-container">
                 <h1>Sign up</h1>
