@@ -47,6 +47,10 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   User.associate = function(models) {
+    User.hasMany(models.Event, {foreignKey: 'hostId'});
+    User.hasMany(models.UserEvent, {foreignKey: 'userId'});
+    User.hasMany(models.UserGroup, {foreignKey:'userId'});
+    User.hasMany(models.Group, {foreignKey: 'ownerId'});
   };
 
   User.prototype.toSafeObject = function() {
@@ -77,11 +81,13 @@ module.exports = (sequelize, DataTypes) => {
     return await User.scope("currentUser").findByPk(id);
   };
 
-  User.signup = async function({ email, password }) {
+  User.signup = async function({ email, password, name }) {
+    console.log(email, password, name)
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       email,
-      hashedPassword
+      hashedPassword,
+      name
     });
     return await User.scope("currentUser").findByPk(user.id);
   };

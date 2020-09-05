@@ -2,7 +2,6 @@ import Cookies from 'js-cookie';
 
 const SET_USER = "auth/SET_USER";
 const REMOVE_USER = "auth/REMOVE_USER";
-const MAKE_USER = "auth/MAKE_USER";
 
 export const setUser = (user) => {
     return {
@@ -14,13 +13,6 @@ export const setUser = (user) => {
 export const removeUser = () => {
     return {
         type: REMOVE_USER,
-    }
-}
-
-export const makeUser = (newUser) => {
-    return {
-        type: MAKE_USER,
-        newUser
     }
 }
 
@@ -52,6 +44,7 @@ export const logout = (email, password, name) => {
             },
             body: JSON.stringify({ email, password, name }),
         });
+        console.log(res);
         if (res.ok) {
             dispatch(removeUser());
         }
@@ -60,20 +53,24 @@ export const logout = (email, password, name) => {
 
 window.login = login;
 
-export const signUp = (email, password, location, name) => {
+export const signUp = (email, password, name) => {
     return async dispatch => {
-        const res = await fetch('/api/session', {
+        const res = await fetch('/api/users', {
             method: "post",
             headers: {
                 "Content-Type": 'application/json',
                 "XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
-            }
+            },
+            body: JSON.stringify({ email, password, name }),
         });
+        res.data = await res.json();
         if (res.ok) {
-            dispatch(removeUser());
+            dispatch(setUser(res.data.user));
         }
     }
 }
+
+window.signUp = signUp;
 
 export default function authReducer(state = {}, action) {
     switch (action.type) {

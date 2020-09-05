@@ -51,8 +51,8 @@ router.delete(
   "/",
   asyncHandler(async function (req, res, next) {
     console.log('we made it into delete');
-    res.clearCookie('token')
-    res.end(200);
+    res.clearCookie('token');
+    res.send(200);
   })
 );
 

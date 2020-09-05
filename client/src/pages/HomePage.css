@@ -1,0 +1,117 @@
+div {
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+}
+
+input {
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    display: block;
+    line-height: 1.45;
+    padding: 4px;
+    font-size: 16px;
+    width: auto;
+    margin-bottom: 16px;
+    color: rgba(0,0,0,.87);
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 3px;
+    background-color: #fafafa;
+}
+
+* {
+    background-color: white;
+}
+
+div {
+    background-color: white;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-size: 13px;
+    font-weight: 550;
+}
+
+
+
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+    border-bottom: 1px lightgrey solid;
+    overflow: hidden;
+}
+
+.banner a{
+    text-decoration: none;
+    color: rgba(0,0,0,.54);
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin-right: 16px;
+
+}
+
+.banner a:hover{
+    color: red;
+}
+
+#search-banner{
+    display: flex;
+    box-sizing: border-box;
+    height: 69px;
+    width: 685px;
+    padding: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:-35px
+}
+
+#search-icon{
+    width: 36px;
+    margin-right: 8px;
+}
+
+#search-bar{
+    box-sizing: border-box;
+    height: 45px;
+    width: 283px;
+    display: flex;
+    border-radius: 3px;
+}
+
+#search-input{
+    border: none;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 8px 32px 8px 8px;
+    height: 45px;
+    width: 280px;
+    border-radius: 3px;
+}
+
+
+.banner img{
+    width: 127px;
+    padding-left: 16px;
+}
+
+
+#event-banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #00455d;
+    height: 169px;
+    z-index: 2;
+}
+
+#event-banner div,h1,span{
+    background-color: transparent;
+    color: white;
+}
+
+#event-banner h1{
+    color: white;
+}
+
+#search-banner{
+    background-color: black;
+}
