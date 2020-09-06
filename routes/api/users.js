@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require("express-validator");
 
-const { User } = require("../../db/models");
+const { User, UserGroup, Event, Group } = require("../../db/models");
 const { handleValidationErrors } = require("../util/validation");
 const { generateToken } = require("../util/auth");
 const {
@@ -48,5 +48,26 @@ router.post(
     });
   })
 );
+
+router.get('/:userId/events', asyncHandler(async function (req, res, next) {
+  const userId = req.params["userId"];
+  const userGroups = await UserGroup.findAll({ where: { userId } });
+  let groupIds = new Set(userGroups.map((ele)=>{
+      return ele.id
+  }))
+  const userEvents = await Event.findAll(
+      {
+          where: {groupId: [...groupIds]},
+          order: [
+              ['date', 'ASC'],
+              ['name', 'ASC']
+          ],
+          include: Group,
+      }
+      )
+
+  res.json({ userEvents });
+}));
+
 
 module.exports = router;
