@@ -7,8 +7,19 @@ import { useSelector } from 'react-redux';
 import logo from '../images/meetup_logo.png';
 
 
-function HomePage({event, user}) {
+function HomePage() {
     const currentUserId = useSelector(state => state.auth.id);
+    let content = {}
+    content = useSelector(state => state.content);
+    if (Object.keys(content).length > 0) {
+        console.log(content.content.userEvents);
+    }
+
+    function getDayOfWeek(date) {
+        const dayOfWeek = new Date(date).getDay();
+        return isNaN(dayOfWeek) ? null :
+            ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+    }
 
     //replace with state tracking number of events in your groups
     const eventCount = 15;
@@ -37,6 +48,10 @@ function HomePage({event, user}) {
                 </div>
             </div>
             <div>{currentDate}</div>
+            {(Object.keys(content).length > 0)
+            ? <div>Loaded</div>
+            : <div>NotLoaded</div>
+            }
         </div>
     )
 }
