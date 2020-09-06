@@ -27,6 +27,9 @@ module.exports = {
     r({userId: users[1].id, eventId: events[1].id}),
     r({userId: users[1].id, eventId: events[2].id}),
     r({userId: users[2].id, eventId: events[2].id}),
+    r({userId: users[0].id, eventId: events[3].id}),
+    r({userId: users[0].id, eventId: events[4].id}),
+    r({userId: users[0].id, eventId: events[5].id}),
   ]);
   },
 
@@ -38,5 +41,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
+   return queryInterface.bulkDelete('UserEvents', null, {});
   }
 };

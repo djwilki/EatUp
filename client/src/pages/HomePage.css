@@ -33,7 +33,7 @@ div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 68px;
+    height: 69px;
     border-bottom: 1px lightgrey solid;
     overflow: hidden;
 }
@@ -56,12 +56,13 @@ div {
     display: flex;
     box-sizing: border-box;
     height: 69px;
-    width: 685px;
+    width: 960px;
     padding: 12px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    top:-35px
+    top:-35px;
+    margin-bottom: -26px;
 }
 
 #search-icon{
@@ -89,8 +90,9 @@ div {
 
 
 .banner img{
-    width: 127px;
+    width: 142px;
     padding-left: 16px;
+    padding-top: 15px;
 }
 
 
@@ -114,4 +116,26 @@ div {
 
 #search-banner{
     background-color: black;
+}
+
+.event-date{
+    display: block;
+    padding: 16px 0 16px 16px;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+
+#fit-page{
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    top: -25px;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
 }
