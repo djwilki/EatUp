@@ -1,36 +1,31 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { check } = require("express-validator");
-const { Group, Event, User, UserGroup } = require("../../db/models");
-const { handleValidationErrors } = require("../util/validation");
-const { generateToken } = require("../util/auth");
+const { Group, Event, User, UserEvent } = require("../../db/models");
 const {
     jwtConfig: { expiresIn },
 } = require("../../config");
 const { Events } = require('pg');
 
-const validateUser = [];
 
 const router = express.Router();
 
 
-router.get('/:userId', asyncHandler(async function (_req, res, _next) {
-    const userId = req.params["userId"];
-    const userGroups = await UserGroup.findAll({ where: { userId } });
-    let groupIds = new Set(userGroups.map((ele)=>{
-        return ele.id
-    }))
-    const userEvents = await Event.findAll(
+
+router.get('/:eventId', asyncHandler(async function (req, res, next) {
+    const eventId = req.params["eventId"];
+    const event = await Event.findOne(
         {
-            where: {groupId: [...groupIds]},
-            order: [
-                ['date', 'ASC'],
-                ['name', 'ASC']
-            ],
-            include: Group,
+            where: {id: eventId},
+            include: [Group, User, UserEvent]
         }
         )
-    res.json({ userEvents });
+
+    const attendees = await UserEvent.findAll(
+        {
+            where: {eventId: eventId}
+        }
+    )
+    res.json({ event, attendees });
 }));
 
 

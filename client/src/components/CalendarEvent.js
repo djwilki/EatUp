@@ -1,8 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './CalendarEvent.css'
-const CalendarEvent = ({ event }) => {
+const CalendarEvent = ({ event, idx }) => {
 
 
     function time() {
@@ -24,7 +23,7 @@ const CalendarEvent = ({ event }) => {
 
 
     return (
-        <div className='event-container'>
+        <li key={idx} className='event-container'>
             <div className='event-time'>{time()}</div>
             <div className='event-nav'>
                 <Link className='group-link' to={groupLink}>{event.Group.name}</Link>
@@ -32,7 +31,7 @@ const CalendarEvent = ({ event }) => {
                 <Link className='location-link' to={eventLink}>{event.location}</Link>
                 <div className='attendance'>{event.attendance} members going</div>
             </div>
-        </div>
+        </li>
     )
 }
 

@@ -30,10 +30,10 @@ div {
 
 
 .banner{
-    display: flex;
+    display: flex!important;
     justify-content: space-between;
     align-items: center;
-    height: 69px;
+    height: 69px!important;
     border-bottom: 1px lightgrey solid;
     overflow: hidden;
 }
@@ -45,7 +45,6 @@ div {
     font-weight: 400;
     font-size: 14px;
     margin-right: 16px;
-
 }
 
 .banner a:hover{
@@ -138,4 +137,5 @@ div {
 ul{
     padding: 0;
     margin: 0;
+
 }

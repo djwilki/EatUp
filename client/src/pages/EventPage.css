@@ -1,0 +1,201 @@
+
+.banner{
+    display: flex!important;
+    justify-content: space-between;
+    align-items: center;
+    height: 95px!important;
+    border-bottom: 2px #d0d0d0 solid;
+    overflow: hidden;
+}
+
+.banner a{
+    text-decoration: none;
+    color: rgba(0,0,0,.54);
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin-right: 16px;
+}
+
+.banner a:hover{
+    color: red;
+}
+
+* {
+    background-color: whitesmoke;
+}
+
+img, button, form{
+    background-color: white;
+}
+
+
+#event-banner__content{
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+}
+
+#event-banner__content div,span{
+    max-width: 1100px;
+    color: black;
+}
+
+#event-banner{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: white;
+    /* height: 216px; */
+    width: 1100px;
+    z-index: 2;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#event-banner div,h1,span{
+    background-color: transparent;
+
+}
+
+.event-date{
+    color: #757575;
+    font-weight: 400;
+    font-family: "Graphik Meetup",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    padding: 24px 0px 0px;
+}
+
+.event-name{
+    margin-bottom: 8px;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "Graphik Meetup",Helvetica,Arial,sans-serif;
+}
+
+#event-banner h1{
+    color: white;
+}
+
+.user-icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 1000px;
+}
+
+.user-content{
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.host-content{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.host-title{
+    color: #757575;
+    font-weight: 400;
+    font-family: "Graphik Meetup",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+}
+
+.host-name{
+    font-weight: 500;
+    font-size: 16px;
+    font-family: "Graphik Meetup",Helvetica,Arial,sans-serif;
+    line-height: 1.5;
+}
+
+.page-footer{
+    background-color:  #0f1721;
+    height: 334px;
+    padding: 24px 16px 8px;
+}
+
+.page-footer div{
+    background-color: transparent;
+    display: flex;
+}
+
+.page-footer div a{
+    color: white;
+    background-color: transparent;
+    justify-self: end;
+    margin-bottom: 16px;
+    text-decoration: none;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.footer-pages{
+    display: flex;
+    flex-direction: row-reverse;
+    border-bottom: 1px solid rgb(83, 81, 81);
+    max-width: 928px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-links{
+    display: flex;
+    flex-direction: row;
+    max-width: 928px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-links a{
+    margin: 16px 8px 32px 0px;
+}
+
+.event-container{
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.event-container div{
+    background-color: transparent;
+}
+
+.event-width{
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Details{
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 500;
+    font-family: "Graphik Meetup",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+    color: #212121;
+}
+
+#attendees{
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 500;
+    font-family: "Graphik Meetup",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+    color: #212121;
+}
+
+.event-description{
+    font-size: 16px;
+    color: #212121;
+    font-weight: 400;
+}
+
+.join-banner {
+    height: 100px;
+    color: black;
+    background-color: white;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+  }

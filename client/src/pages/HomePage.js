@@ -28,7 +28,7 @@ function HomePage() {
                 </div>
                 <ul>
                     {content.content.userEvents.map((event, idx) => {
-                        if (ele == event.date.split("T")[0]) { return <CalendarEvent event={event} /> }
+                        if (ele == event.date.split("T")[0]) { return <CalendarEvent event={event} key={idx} /> }
                     }
                     )}
                 </ul>
