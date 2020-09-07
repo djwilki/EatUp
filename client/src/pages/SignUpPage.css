@@ -85,6 +85,11 @@ label{
     max-width: 50px;
     padding-left: 0px;
     margin-left: 32px;
+    background-color: white;
+}
+
+a{
+    background-color: white;
 }
 
 .banner{
@@ -165,4 +170,8 @@ h1{
 
 #continue:hover{
     cursor: pointer;
+}
+
+label{
+    background-color: transparent;
 }

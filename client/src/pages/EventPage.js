@@ -3,19 +3,22 @@ import LogoutButton from '../components/LogoutButton';
 import { Redirect, Link } from 'react-router-dom';
 import LoginButton from '../components/LoginButton'
 import './EventPage.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../images/meetup_logo.png';
 import icon from '../images/meetup_icon.png';
-import CalendarEvent from '../components/CalendarEvent'
-
+// import CalendarEvent from '../components/CalendarEvent'
+import {deleteEvent} from '../store/event'
 
 function EventPage() {
     const currentUserId = useSelector(state => state.auth.id);
-    let content = {}
+    let event = {}
     let day = {};
+    const dispatch = useDispatch();
 
-    content = useSelector(state => state.content);
-    console.log(content)
+
+
+
+    event = useSelector(state => state.event);
     function getDayOfWeek(date) {
         const dayOfWeek = new Date(date.replaceAll('-0', '-')).getDay();
         return isNaN(dayOfWeek) ? null :
@@ -33,8 +36,22 @@ function EventPage() {
         return year;
     }
 
-    if (Object.keys(content).length > 0) {
-        day = content.content.event.date.split("T")[0];
+    if (Object.keys(event).length > 0) {
+        day = event.event.event.date.split("T")[0];
+    }
+
+    function handleClick (e) {
+        e.preventDefault();
+        console.log(event.event.event.id)
+        dispatch(deleteEvent(event.event.event.id));
+    }
+
+    function deleteButton(){
+        if(Object.keys(event).length > 0){
+            if(currentUserId === event.event.event.hostId){
+                return <button type="button" onClick={handleClick}>Delete</button>
+            }
+        }
     }
 
     return (
@@ -50,33 +67,36 @@ function EventPage() {
 
             <div id="event-banner">
                 <div id="event-banner__content">
-                    {(Object.keys(content).length > 0 && !!day)
+                    {(Object.keys(event).length > 0 && !!day)
                         ? <div className='event-date'>{getDayOfWeek(day)}, {getMonthOfYear(day)} {new Date(day.replaceAll('-0', '-')).getDate()}, {getYear(day)}</div>
                         : <div>Loading...</div>}
-                    <div>{(Object.keys(content).length > 0 && !!day)
-                        ? <div className='event-name'>{content.content.event.name}</div>
+                    <div>{(Object.keys(event).length > 0 && !!day)
+                        ? <div className='event-name'>{event.event.event.name}</div>
                         : <div>Loading...</div>}</div>
                     <div className="user-content">
                         <img className="user-icon" src={icon}></img>
                         <div className='host-content'>
                             <div className='host-title'>Hosted by</div>
-                            {(Object.keys(content).length > 0 && !!day)
-                                ? <div className='event-host'>{content.content.event.User.name}</div>
+                            {(Object.keys(event).length > 0 && !!day)
+                                ? <div className='event-host'>{event.event.event.User.name}</div>
                                 : <div>Loading...</div>}
                         </div>
                     </div>
                 </div>
             </div>
             <div></div>
-            <div className='event-container'>
+            <div className='event-page-container'>
                 {/* <img src={icon}></img> */}
                 <div className='event-width'>
-                    <div id='Details'>Details</div>
-                    {(Object.keys(content).length > 0)
-                        ? <div className='event-description'>{content.content.event.description}</div>
+                    <div>
+                        <div id='Details'>Details</div>
+                        {deleteButton()}
+                    </div>
+                    {(Object.keys(event).length > 0)
+                        ? <div className='event-description'>{event.event.event.description}</div>
                         : <div>Loading...</div>}
-                    <div id='attendees'>Attendees ({(Object.keys(content).length > 0)
-                        ? <span>{content.content.event.UserEvents.length}</span>
+                    <div id='attendees'>Attendees ({(Object.keys(event).length > 0)
+                        ? <span>{event.event.event.UserEvents.length}</span>
                         : <span>{"Loading..."}</span>})</div>
                     <div>
                         {}
@@ -85,7 +105,9 @@ function EventPage() {
             </div>
             <div className='join-banner'>
                 <div>
-                    <div></div>
+                    {(Object.keys(event).length > 0 && !!day)
+                        ? <div className='event-date'>{getDayOfWeek(day)}, {getMonthOfYear(day)} {new Date(day.replaceAll('-0', '-')).getDate()}, {getYear(day)}</div>
+                        : <div>Loading...</div>}
                     <div></div>
                 </div>
                 {/* <button onClick={handleClick}></button> */}

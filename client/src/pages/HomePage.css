@@ -95,7 +95,7 @@ div {
 }
 
 
-#event-banner{
+#home-event-banner{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,12 +104,17 @@ div {
     z-index: 2;
 }
 
-#event-banner div,h1,span{
+#home-event-banner div,h1,span{
     background-color: transparent;
     color: white;
 }
 
-#event-banner h1{
+#home-event-banner div span{
+    background-color: transparent;
+    color: white;
+}
+
+#home-event-banner h1{
     color: white;
 }
 

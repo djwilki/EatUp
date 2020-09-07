@@ -152,14 +152,14 @@ img, button, form{
     margin: 16px 8px 32px 0px;
 }
 
-.event-container{
+.event-page-container{
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.event-container div{
+.event-page-container div{
     background-color: transparent;
 }
 

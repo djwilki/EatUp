@@ -1,16 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchEventPage } from "../store/content";
+import { fetchEventPage } from "../store/event";
 import EventPage from './EventPage';
 
 class ConnectedEventPage extends React.Component{
     constructor(props){
         super(props);
-
     }
 
     componentDidMount(){
-        this.props.fetchEvent(this.props.auth.id);
+        this.props.fetchEvent(this.props.match.params.id);
     }
 
     render(){
@@ -20,7 +19,9 @@ class ConnectedEventPage extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
     const content = state.content || {};
+    const event = state.event || {};
     return ({
+      event: event,
       content: content,
       auth: state.auth
     })

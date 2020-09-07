@@ -6,7 +6,7 @@ const CalendarEvent = ({ event, idx }) => {
 
     function time() {
         let eventTime = event.date.split("T")[1].slice(0, 5);
-        if (eventTime[0] == '0') {
+        if (eventTime[0] === '0') {
             eventTime = eventTime.slice(1);
         }
         if (Number(eventTime.split(':')[0]) > 12) {
