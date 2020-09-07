@@ -11,23 +11,6 @@ export const setContent = (content) => {
 
 
 
-// export const fetchHomePage = (userId) => {
-//     return async dispatch => {
-//         const res = await fetch("/api/events", {
-//             method: 'get',
-//             headers: {
-//                 "Content-Type": 'application/json',
-//                 "XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
-//             },
-//             body: JSON.stringify({ userId }),
-//         });
-//         res.data = await res.json();
-//         if (res.ok) {
-//             dispatch(setContent(res.data));
-//         }
-//     }
-// };
-
 export const fetchHomePage = (id) => {
     return async dispatch => {
         const res = await fetch(`/api/users/${id}/events/`, {
@@ -47,6 +30,23 @@ export const fetchHomePage = (id) => {
 
 window.fetchHomePage = fetchHomePage;
 
+export const fetchEventPage = (id) => {
+    return async dispatch => {
+        const res = await fetch(`/api/events/${id}`, {
+            method: 'get',
+            headers: {
+                "Content-Type": 'application/json',
+                "XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
+            },
+        });
+        res.data = await res.json();
+        if (res.ok) {
+            dispatch(setContent(res.data));
+        }
+    }
+}
+
+window.fetchEventPage = fetchEventPage;
 
 export default function contentReducer(state = {}, action) {
     switch (action.type) {
