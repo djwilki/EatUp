@@ -21,6 +21,7 @@ function MakeEventPage() {
         console.log(group, date, time, description, title, seats);
 
         dispatch(makeEvent({ groupId: group, date: `${date} ${time}`, description, name: title, seats, userId: currentUserId }));
+        window.location.replace("/")
     }
 
     return (
