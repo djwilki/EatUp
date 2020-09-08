@@ -1,38 +1,31 @@
-# Solo React Project
+## Welcome to [Eatup](https://eatup-lite.herokuapp.com/), a [Meetup](https://www.meetup.com/) for meals! 
 
-This is the backend for the Solo React project.
+### This site was made using SQL, React, & Redux.
 
-## Getting started
+### Users can:
+* Explore events of groups they are members of 
+* Create, update, and delete new events
 
-1. Clone this repository
-2. Install dependencies (`npm install`)
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file with CREATEDB privileges
+### Groups Include a variety of meals such as
+* Breakfast
+* Lunch
+* Dinner 
 
-5. Run
-   * `npm run db:create`
-   * `npm run db:migrate`
-   * `npm run db:seed:all`
-   * `npm start`
+### Event attributes include:
+* Title
+* Description
+* Date
+* Time
+---
 
-## Deploy to Heroku
+### Navigating Code:
+* All code is written in the traditional React and Redux framework.
 
-1. Create a new project
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run `$ heroku login`
-5. Add heroku as a remote to this git repo `$ heroku git:remote -a <project_name>`
-6. Push the project to heroku `$ git push heroku master`
-7. Connect to the heroku shell and prepare your database
+### Features to be added:
+* Actually being able to attend meetups
+* Joining, creating groups
+* Making events from groups
+* Making a limited number of events populate / have only current events populate
 
-```bash
-    $ heroku run bash
-    $ sequelize-cli db:migrate
-    $ sequelize-cli db:seed:all
-```
-(You can interact with your database this way as youd like, but beware that `db:drop` should not be run in the heroku environment)
-
-8. Add environment variables on the heroku environment using the Heroku dashboard. (Setting Heroku Config Vars)[https://devcenter.heroku.com/articles/config-vars]
-
-9. profit
+### Credits:
+* The logos were take directly from Meetup.com
