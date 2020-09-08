@@ -10,6 +10,9 @@ import CalendarEvent from '../components/CalendarEvent'
 
 function HomePage() {
     const currentUserId = useSelector(state => state.auth.id);
+    // if(!currentUserId){
+    //     <Redirect />
+    // }
     let content = {}
     let days = {};
 
@@ -28,7 +31,7 @@ function HomePage() {
                 </div>
                 <ul>
                     {content.content.userEvents.map((event, idx) => {
-                        if (ele == event.date.split("T")[0]) { return <CalendarEvent event={event} key={idx} /> }
+                        if (ele === event.date.split("T")[0]) { return <CalendarEvent event={event} key={idx} /> }
                     }
                     )}
                 </ul>
@@ -60,7 +63,7 @@ function HomePage() {
                     {!currentUserId ? <LoginButton /> : ''}
                 </div>
             </div>
-            <div id="event-banner">
+            <div id="home-event-banner">
                 <h1>Find your next event</h1>
                 <div><span>{eventCount} events in your groups</span></div>
             </div>

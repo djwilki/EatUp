@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchEventPage } from "../store/event";
+// import { fetchEventPage } from "../store/event";
 import EventPage from './EventPage';
 
 class ConnectedEventPage extends React.Component{
@@ -9,11 +9,11 @@ class ConnectedEventPage extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchEvent(this.props.match.params.id);
+        // this.props.fetchEvent(this.props.match.params.id);
     }
 
     render(){
-        return <EventPage content={this.props.content}/>
+        return <EventPage event={this.props.event}/>
     }
 }
 
@@ -28,7 +28,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 
   const mapDispatchToProps = (dispatch) => ({
-     fetchEvent: (id) => dispatch(fetchEventPage(id)),
+    //  fetchEvent: (id) => dispatch(fetchEventPage(id)),
   });
 
-  export default connect(mapStateToProps, mapDispatchToProps)(ConnectedEventPage);
+  export default connect(mapStateToProps, mapDispatchToProps)(ConnectedEditEventPage);

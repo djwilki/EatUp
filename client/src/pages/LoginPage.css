@@ -19,6 +19,10 @@ button.Mui-disabled{
 }
 
 
+span.MuiButton-label{
+    color: white;
+}
+
 .hidden {
     display: none;
 }

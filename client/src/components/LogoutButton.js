@@ -1,6 +1,7 @@
 import React from 'react';
 import {logout} from '../store/auth'
 import {useDispatch} from 'react-redux';
+import './LogoutButton.css'
 
 const LogoutButton = () => {
 
@@ -16,7 +17,7 @@ const LogoutButton = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <button type="submit">Log out</button>
+                <button className="logout-button" type="submit">Log out</button>
             </form>
         </>
     )
