@@ -44,12 +44,23 @@ function EventPage() {
         e.preventDefault();
         console.log(event.event.event.id)
         dispatch(deleteEvent(event.event.event.id));
+        window.location.replace("/")
     }
+
+
 
     function deleteButton(){
         if(Object.keys(event).length > 0){
             if(currentUserId === event.event.event.hostId){
                 return <button type="button" onClick={handleClick}>Delete</button>
+            }
+        }
+    }
+
+    function editButton(){
+        if(Object.keys(event).length > 0){
+            if(currentUserId === event.event.event.hostId){
+                return <Link to={`/event/${event.event.event.id}/edit`}>Edit</Link>
             }
         }
     }
@@ -91,6 +102,7 @@ function EventPage() {
                     <div>
                         <div id='Details'>Details</div>
                         {deleteButton()}
+                        {editButton()}
                     </div>
                     {(Object.keys(event).length > 0)
                         ? <div className='event-description'>{event.event.event.description}</div>
