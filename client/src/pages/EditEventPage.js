@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import LogoutButton from '../components/LogoutButton';
 import { Redirect, Link } from 'react-router-dom';
 import LoginButton from '../components/LoginButton'
+import MakeEventButton from '../components/MakeEventButton'
 import './EventPage.css';
 import { useDispatch, useSelector } from 'react-redux';
- import {editEvent} from '../store/event'
+import { editEvent } from '../store/event'
 import logo from '../images/meetup_logo.png'
 
 function MakeEventPage() {
@@ -22,7 +23,7 @@ function MakeEventPage() {
         console.log(group, date, time, description, title, seats);
         const obj = {}
 
-               Object.assign(obj, {groupId: group, date:`${date} ${time}`, description, name: title, seats});
+        Object.assign(obj, { groupId: group, date: `${date} ${time}`, description, name: title, seats });
 
         dispatch(editEvent(obj, eventId));
         window.location.replace(`/events/${eventId}`)
@@ -33,39 +34,44 @@ function MakeEventPage() {
             <div className="banner">
                 <Link to="/"><img src={logo} alt="logo" /></Link>
                 <div className="links">
+                    {currentUserId ? <MakeEventButton /> : ''}
                     {currentUserId ? <LogoutButton /> : ''}
                     {!currentUserId ? <LoginButton /> : ''}
                 </div>
             </div>
+            <div id="form-container">
                 <div>
                     <div>Edit an event</div>
                 </div>
                 <div>
-                        <label>Title <span>(required)</span></label>
-                        <input onChange={(e) => setTitle(e.target.value)}></input>
-                        <label>Date and time</label>
-                        <div>
-                            <input type="date" onChange={(e) => setDate(e.target.value)}></input>
-                            <input type="time" onChange={(e) => setTime(e.target.value)}></input>
-                        </div>
-                        {/* <label>Duration</label>
+                    <label>Title <span>(required)</span></label>
+                    <input onChange={(e) => setTitle(e.target.value)}></input>
+                    <label>Date and time</label>
+                    <div>
+                        <input type="date" onChange={(e) => setDate(e.target.value)}></input>
+                        <input type="time" onChange={(e) => setTime(e.target.value)}></input>
+                    </div>
+                    {/* <label>Duration</label>
                         <select>
                             <option value="2:00"></option>
                         </select> */}
-                        <label>Description <span>(required)</span></label>
-                        <textarea type="text" onChange={(e) => setDescription(e.target.value)}></textarea>
-                        <label>Seats <span>(required)</span></label>
-                        <input type="number" min="1" onChange={(e) => setSeats(e.target.value)}></input>
+                        <div id="textarea-container">
+                    <label>Description <span>(required)</span></label>
+                    <textarea type="text" onChange={(e) => setDescription(e.target.value)}></textarea>
                     </div>
+                    <label>Seats <span>(required)</span></label>
+                    <input type="number" min="1" onChange={(e) => setSeats(e.target.value)}></input>
+                </div>
 
-                <div className="footer">
+                <div className="submit-footer">
                     <div>
                         <Link to="/">Cancel</Link>
                         <button type="click" onClick={handleSubmit}>Publish</button>
                     </div>
                     {/* <button onClick={handleClick}></button> */}
                 </div>
-        </div>
+            </div>
+        </div >
     )
 }
 

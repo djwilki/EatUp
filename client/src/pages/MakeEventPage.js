@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LogoutButton from '../components/LogoutButton';
 import { Redirect, Link } from 'react-router-dom';
 import LoginButton from '../components/LoginButton'
-import './EventPage.css';
+import './MakeEventPage.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeEvent } from '../store/event'
 import logo from '../images/meetup_logo.png'
@@ -32,40 +32,46 @@ function MakeEventPage() {
                     {!currentUserId ? <LoginButton /> : ''}
                 </div>
             </div>
-            <div>
-                <div>Create an event</div>
-                <select name="groups" id="groups" onChange={(e) => setGroup(e.target.value)} defaultValue="">
-                    <option value="" selected="selected"></option>
-                    <option value="1">Breakfast</option>
-                    {}
-                </select>
-            </div>
-            {group != ''
-                ? <div>
-                    <label>Title <span>(required)</span></label>
-                    <input onChange={(e) => setTitle(e.target.value)} required></input>
-                    <label>Date and time</label>
-                    <div>
-                        <input type="date" onChange={(e) => setDate(e.target.value)} required></input>
-                        <input type="time" onChange={(e) => setTime(e.target.value)} required></input>
-                    </div>
-                    {/* <label>Duration</label>
+            <div id="form-container">
+                <div >
+                    <div>Create an event</div>
+                    <select name="groups" id="groups" onChange={(e) => setGroup(e.target.value)} defaultValue="">
+                        <option value="" selected="selected"></option>
+                        <option value="1">Breakfast</option>
+                        <option value="2">Lunch</option>
+                        <option value="3">Dinner</option>
+                        {}
+                    </select>
+                </div>
+                {group != ''
+                    ? <div>
+                        <label>Title <span>(required)</span></label>
+                        <input onChange={(e) => setTitle(e.target.value)} required></input>
+                        <label>Date and time</label>
+                        <div>
+                            <input type="date" onChange={(e) => setDate(e.target.value)} required></input>
+                            <input type="time" onChange={(e) => setTime(e.target.value)} required></input>
+                        </div>
+                        {/* <label>Duration</label>
                         <select>
                             <option value="2:00"></option>
                         </select> */}
-                    <label>Description <span>(required)</span></label>
-                    <textarea type="text" onChange={(e) => setDescription(e.target.value)} required></textarea>
-                    <label>Seats <span>(required)</span></label>
-                    <input type="number" min="1" onChange={(e) => setSeats(e.target.value)} required></input>
+                        <div id="textarea-container">
+                            <label>Description <span>(required)</span></label>
+                            <textarea type="text" onChange={(e) => setDescription(e.target.value)} required></textarea>
+                        </div>
+                        <label>Seats <span>(required)</span></label>
+                        <input type="number" min="1" onChange={(e) => setSeats(e.target.value)} required></input>
+                    </div>
+                    : <></>
+                }
+                <div className="submit-footer">
+                    <div>
+                        <Link to="/">Cancel</Link>
+                        <button type="click" onClick={handleSubmit}>Publish</button>
+                    </div>
+                    {/* <button onClick={handleClick}></button> */}
                 </div>
-                : <></>
-            }
-            <div className="footer">
-                <div>
-                    <Link to="/">Cancel</Link>
-                    <button type="click" onClick={handleSubmit}>Publish</button>
-                </div>
-                {/* <button onClick={handleClick}></button> */}
             </div>
         </div>
     )

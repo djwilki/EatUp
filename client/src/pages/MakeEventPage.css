@@ -1,0 +1,45 @@
+#form-container{
+    width: 428px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.submit-footer div a {
+    margin: 10px;
+}
+
+.submit-footer div button{
+    background-color: #ed1c40;
+    color: white;
+    text-transform: none;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    width: fit-content;
+}
+
+textarea:required {
+    box-shadow: none;
+    resize: none;
+    background-color: #fafafa;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,.12);
+    box-shadow: none;
+    box-sizing: border-box;
+    margin: 0 0 20px;
+    max-width: 100%;
+    padding: 8px;
+    width: 428px;
+    height: 39.2px;
+}
+
+#textarea-container{
+    display: flex;
+    flex-direction: column;
+}
+
+select:focus{
+    outline: none;
+}

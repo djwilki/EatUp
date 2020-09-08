@@ -10,6 +10,7 @@ const LogoutButton = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(logout());
+        window.location.replace("/login")
     }
 
 

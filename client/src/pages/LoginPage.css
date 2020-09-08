@@ -88,6 +88,11 @@ Button {
     font-weight: 600;
 }
 
+.demo-user:focus{
+        border: none;
+        outline: none;
+}
+
 .title{
     font-size: 33px;
     font-weight: 600;

@@ -1,5 +1,5 @@
 
-.banner{
+.header-banner{
     display: flex!important;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 
-.banner a{
+.header-banner a{
     text-decoration: none;
     color: rgba(0,0,0,.54);
     font-family: "Graphik Meetup",helvetica,arial,sans-serif;
@@ -17,8 +17,14 @@
     margin-right: 16px;
 }
 
-.banner a:hover{
+.header-banner a:hover{
     color: red;
+}
+
+.header-banner img{
+    width: 142px;
+    padding-left: 16px;
+    padding-top: 15px;
 }
 
 * {
@@ -199,3 +205,54 @@ img, button, form{
     position: sticky;
     bottom: 0;
   }
+
+  .event-options{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .event-options div button,a {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    /*input has OS specific font-family*/
+    color: grey;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .join-banner{
+      width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+
+  textarea:required {
+    box-shadow: none;
+    resize: none;
+    background-color: #fafafa;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,.12);
+    box-shadow: none;
+    box-sizing: border-box;
+    margin: 0 0 20px;
+    max-width: 100%;
+    padding: 8px;
+    width: 428px;
+    height: 39.2px;
+}
+
+#textarea-container{
+    display: flex;
+    flex-direction: column;
+}
+
+select:focus{
+    outline: none;
+}
