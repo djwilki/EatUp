@@ -27,7 +27,19 @@ div {
     font-weight: 550;
 }
 
+.links{
+    display: flex;
+    font-size: 14px;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-weight: 400
+}
 
+.links a{
+    font-size: 14px;
+    display: inline-block;
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    font-weight: 400
+}
 
 .banner{
     display: flex!important;

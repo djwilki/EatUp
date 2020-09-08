@@ -2,12 +2,13 @@ import React from 'react';
 import LogoutButton from '../components/LogoutButton';
 import { Redirect, Link } from 'react-router-dom';
 import LoginButton from '../components/LoginButton'
+import MakeEventButton from '../components/MakeEventButton'
 import './EventPage.css';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../images/meetup_logo.png';
 import icon from '../images/meetup_icon.png';
 // import CalendarEvent from '../components/CalendarEvent'
-import {deleteEvent} from '../store/event'
+import { deleteEvent } from '../store/event'
 
 function EventPage() {
     const currentUserId = useSelector(state => state.auth.id);
@@ -40,7 +41,7 @@ function EventPage() {
         day = event.event.event.date.split("T")[0];
     }
 
-    function handleClick (e) {
+    function handleClick(e) {
         e.preventDefault();
         console.log(event.event.event.id)
         dispatch(deleteEvent(event.event.event.id));
@@ -49,17 +50,17 @@ function EventPage() {
 
 
 
-    function deleteButton(){
-        if(Object.keys(event).length > 0){
-            if(currentUserId === event.event.event.hostId){
+    function deleteButton() {
+        if (Object.keys(event).length > 0) {
+            if (currentUserId === event.event.event.hostId) {
                 return <button type="button" onClick={handleClick}>Delete</button>
             }
         }
     }
 
-    function editButton(){
-        if(Object.keys(event).length > 0){
-            if(currentUserId === event.event.event.hostId){
+    function editButton() {
+        if (Object.keys(event).length > 0) {
+            if (currentUserId === event.event.event.hostId) {
                 return <Link to={`/event/${event.event.event.id}/edit`}>Edit</Link>
             }
         }
@@ -67,10 +68,11 @@ function EventPage() {
 
     return (
         <div>
-            <div className="banner">
+            <div className="header-banner">
                 <Link to="/"><img src={logo} alt="logo" /></Link>
 
                 <div className="links">
+                    {currentUserId ? <MakeEventButton /> : ''}
                     {currentUserId ? <LogoutButton /> : ''}
                     {!currentUserId ? <LoginButton /> : ''}
                 </div>
@@ -99,10 +101,12 @@ function EventPage() {
             <div className='event-page-container'>
                 {/* <img src={icon}></img> */}
                 <div className='event-width'>
-                    <div>
+                    <div className="event-options">
                         <div id='Details'>Details</div>
+                        <div>
                         {deleteButton()}
                         {editButton()}
+                        </div>
                     </div>
                     {(Object.keys(event).length > 0)
                         ? <div className='event-description'>{event.event.event.description}</div>
@@ -120,7 +124,9 @@ function EventPage() {
                     {(Object.keys(event).length > 0 && !!day)
                         ? <div className='event-date'>{getDayOfWeek(day)}, {getMonthOfYear(day)} {new Date(day.replaceAll('-0', '-')).getDate()}, {getYear(day)}</div>
                         : <div>Loading...</div>}
-                    <div></div>
+                    <div>{(Object.keys(event).length > 0 && !!day)
+                        ? <div>{event.event.event.name}</div>
+                        : <div>Loading...</div>}</div>
                 </div>
                 {/* <button onClick={handleClick}></button> */}
             </div>

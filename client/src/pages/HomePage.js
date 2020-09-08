@@ -2,6 +2,7 @@ import React from 'react';
 import LogoutButton from '../components/LogoutButton';
 import { Redirect, Link } from 'react-router-dom';
 import LoginButton from '../components/LoginButton'
+import MakeEventButton from '../components/MakeEventButton'
 import './HomePage.css';
 import { useSelector } from 'react-redux';
 import logo from '../images/meetup_logo.png';
@@ -59,6 +60,7 @@ function HomePage() {
                 <Link to="/"><img src={logo} alt="logo" /></Link>
 
                 <div className="links">
+                    {currentUserId ? <MakeEventButton /> : ''}
                     {currentUserId ? <LogoutButton /> : ''}
                     {!currentUserId ? <LoginButton /> : ''}
                 </div>
